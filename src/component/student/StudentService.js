@@ -1,9 +1,9 @@
 import axios from "axios";
 
 class StudentService {
-    getAll = () => {
+    getAll = (search) => {
         return new Promise((resolve, reject) => {
-            axios.get("http://localhost:8080/students")
+            axios.get("http://localhost:8080/students?search="+search)
                 .then(response => {
                     resolve(response.data);
                 })
@@ -27,5 +27,7 @@ class StudentService {
     }
 }
 
+let studentService = new StudentService();
 
-export default StudentService;
+
+export default studentService;
