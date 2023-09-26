@@ -1,7 +1,16 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addCart} from "../../redux/actions";
 
 const BodyComponent = () => {
+    const dispatch = useDispatch();
+
+    function addToCard() {
+        dispatch(addCart({id:1, name: "abc"}));
+
+    }
+
     return (
         <div>
             <div className="container-xxl py-6">
@@ -22,6 +31,8 @@ const BodyComponent = () => {
                                 <Link to={"/edit/1"}>
                                     <button>edit</button>
                                 </Link>
+                                <button onClick={addToCard}>Add Cart</button>
+
                             </div>
                         </div>
 
@@ -36,6 +47,8 @@ const BodyComponent = () => {
                                 <Link to={"/edit/2"}>
                                     <button>edit</button>
                                 </Link>
+                                <button onClick={addToCard}>Add Cart</button>
+
                             </div>
                         </div>
 
@@ -50,6 +63,7 @@ const BodyComponent = () => {
                                 <Link to={"/edit/3"}>
                                     <button>edit</button>
                                 </Link>
+                                <button>Add Cart</button>
                             </div>
                         </div>
                         <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">

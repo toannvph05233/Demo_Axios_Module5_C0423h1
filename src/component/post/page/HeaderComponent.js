@@ -1,7 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const HeaderComponent = () => {
+    const carts = useSelector((state) => state.carts);
+
+
     return (
         <div>
             <div className="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
@@ -56,9 +60,11 @@ const HeaderComponent = () => {
                             <a className="btn-sm-square bg-white rounded-circle ms-3" href="">
                                 <small className="fa fa-user text-body"></small>
                             </a>
-                            <a className="btn-sm-square bg-white rounded-circle ms-3" href="">
-                                <small className="fa fa-shopping-bag text-body"></small>
-                            </a>
+                            <Link to={"/cart"}>
+                            <p className="btn-sm-square bg-white rounded-circle ms-3" >
+                                <small className="fa fa-shopping-bag text-body"><h1 style={{color:"red"}}>{carts.length}</h1></small>
+                            </p>
+                            </Link>
                         </div>
                     </div>
                 </nav>
